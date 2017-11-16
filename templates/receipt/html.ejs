@@ -1,0 +1,270 @@
+<!-- HIDDEN PREHEADER TEXT -->
+<div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+    <!--Entice the open with some amazing preheader text. Use a little mystery and get those subscribers to read through...-->
+</div>
+
+        <!-- HEADER -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+    <td bgcolor="#ffffff" align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+            <tr>
+                <td align="center" valign="top" width="500">
+        <![endif]-->
+        <!--<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">-->
+            <!--<tr>-->
+                <!--<td align="center" valign="top" style="padding: 15px 0;" class="logo">-->
+                    <!--<a href="http://litmus.com" target="_blank">-->
+                        <!--<img alt="Logo" src="logo-2.jpg" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">-->
+                    <!--</a>-->
+                <!--</td>-->
+            <!--</tr>-->
+        <!--</table>-->
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+                </tr>
+                </table>
+        <![endif]-->
+    </td>
+</tr>
+<tr>
+    <td bgcolor="#ffffff" align="center" style="padding: 15px;">
+        <!--[if (gte mso 9)|(IE)]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+            <tr>
+                <td align="center" valign="top" width="500">
+        <![endif]-->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
+            <tr>
+                <td>
+                    <!-- COPY -->
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Hello <%= customer.firstname %>,</td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Your order has been submitted for fulfillment!</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666; text-align:center" class="padding-copy">We will contact you to validate your order.</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+                </tr>
+                </table>
+        <![endif]-->
+    </td>
+</tr>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <!-- COPY -->
+        <td align="center" style="font-size: 24px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Details</td>
+    </tr>
+</table>
+<tr>
+    <td bgcolor="#ffffff" valign="top" align="center" style="padding: 15px; margin-bottom:15px;" class="padding mobile-wrapper">
+        <!--- Customer Details -->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:lightgrey; max-width: 500px;border:1px solid black;" class="responsive-table">
+            <tr>
+                <td>
+                    <!-- COPY -->
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tr>
+                            <td align="center" valign="top" style="font-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding: 10px;" class="padding-copy">Ship To: <%= customer.firstname+" "+customer.lastname %></td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top" style="font-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding: 10px;" class="padding-copy"><%= customer.address %></td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top" style="font-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding: 10px;" class="padding-copy"><%= customer.phone %></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br></br>
+        <!--- End Customer Details -->
+        <!--[if (gte mso 9)|(IE)]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+                <td align="center" valign="top" width="100%">
+        <![endif]-->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
+            <tr>
+                <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                    <!-- TWO COLUMNS -->
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tr>
+                            <td valign="top" class="mobile-wrapper">
+                                <!-- LEFT COLUMN -->
+                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                    <% for(var i in order.items) { %>
+                                    <tr>
+                                        <td style="padding: 0 0 10px 0;">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <tr>
+                                                    <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"><%= order.items[i].name %></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                </table>
+                                <!-- RIGHT COLUMN -->
+                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                    <% for(var i in order.items) { %>
+                                    <tr>
+                                        <td style="padding: 0 0 10px 0;">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <tr>
+                                                    <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">$<%= order.items[i].price %></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px 0 0px 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;">
+                    <!-- TWO COLUMNS -->
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tr>
+                            <td valign="top" class="mobile-wrapper">
+                                <!-- LEFT COLUMN -->
+                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                    <tr>
+                                        <td style="padding: 0 0 10px 0;">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <tr>
+                                                    <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px; font-weight: bold;">Total</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- RIGHT COLUMN -->
+                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                    <tr>
+                                        <td>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <tr>
+                                                    <td align="right" style="font-family: Arial, sans-serif; color: #7ca230; font-size: 16px; font-weight: bold;">$ <%= order.total %></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+                </tr>
+                </table>
+        <![endif]-->
+    </td>
+</tr>
+<tr>
+    <td bgcolor="#ffffff" align="center" style="padding: 15px;">
+        <!--[if (gte mso 9)|(IE)]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+            <tr>
+                <td align="center" valign="top" width="500">
+        <![endif]-->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                <!-- COPY -->
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" style="padding: 0 0 0 0; font-size: 14px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color: #aaaaaa; font-style: italic;" class="padding-copy"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+                </tr>
+                </table>
+        <![endif]-->
+    </td>
+</tr>
+<tr>
+    <td bgcolor="#ffffff" align="center" style="padding: 15px;">
+        <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy"></td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <!-- BULLETPROOF BUTTON -->
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="center" style="padding-top: 25px;" class="padding">
+                                            <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
+                                                <tr>
+                                                    <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="#" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Manage Order</a></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+                </tr>
+                </table>
+        <![endif]-->
+    </td>
+</tr>
+<tr>
+    <td bgcolor="#ffffff" align="center" style="padding: 20px 0px;">
+        <!--[if (gte mso 9)|(IE)]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+            <tr>
+                <td align="center" valign="top" width="500">
+        <![endif]-->
+        <!-- UNSUBSCRIBE COPY -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
+            <tr>
+                <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
+                    5125 Convoy Street Unit #211, San Diego CA 92111, USA
+                </td>
+            </tr>
+        </table>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+                </tr>
+                </table>
+        <![endif]-->
+    </td>
+</tr>
+</table>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Driven Test</title>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/style/main.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-cookie/jquery.cookie.js"></script>
+        <script type="text/javascript" src="/js/jquery-masked/masked.js"></script>
+        <script type="text/javascript" src="/js/confirm.js"></script>
+        <script type="text/javascript" src="/js/ui.js"></script>
+        <script type="text/javascript" src="/js/util.js"></script>
+        <script type="text/javascript" src="/js/test.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--<a id="homeLink" class="navbar-brand link" href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>-->
+                        <!--<a id="newLink" class="navbar-brand link" href="#" data-tab="newOrder"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>-->
+                        <!--<a id="confirmLink" class="navbar-brand link" href="#" data-tab="confirm"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></a>-->
+                        <!--<a id="searchLink" class="navbar-brand link" href="#" data-tab="search"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a>-->
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <form id="settings" class="navbar-form navbar-right">
+                            <button id="profileLink" type="button" class="btn btn-default authUI">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<span id="profileLinkText"></span>
+                            </button>
+                            <button id="logout" type="button" class="btn btn-default authUI" onclick="logout()">
+                                Logout
+                            </button>
+                        </form>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            <div id="confirm" class="inactiveTab white rounded pad10"></div>
+            <div id="search" class="activeTab white rounded">
+                <div class="text-center pad50">
+                    <button id="newPhoneOrder" class="btn btn-primary btn-lg">Create Phone Order</button>
+                </div>
+                <table id="orders" class="table font-66">
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Time</th>
+                </table>
+            </div>
+        </div>
+    </body>
+    <div id="successModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Confirmed</h4>
+                </div>
+                <div class="modal-body text-center">
+                    <p id="successModalText" class="text-center">Order Confirmed!</p>
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                    <button id="successDismissButton" type="button" data-dismiss="modal" class="btn btn-primary">OK</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div id="reviewOrderModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <!--<div class="modal-body text-center"></div>-->
+                <div class="modal-footer">
+                    <form id="orderReview" class="text-center">
+                        <div class="form-group hide">
+                            <input id="hash" type="text" name="hash" class="form-control" placeholder="Find by Order Id" value="<%= orderId %>"></input>
+                        </div>
+                        <div class="form-group">
+                            <input id="email" type="text" name="email" class="form-control" placeholder="Email" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input id="phone" type="tel" name="phone" class="form-control" placeholder="Phone" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input id="firstname" type="text" name="firstname" class="form-control" placeholder="First Name" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input id="lastname" type="text" name="lastname" class="form-control" placeholder="Last Name" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input id="address" type="text" name="address" class="form-control" placeholder="Address" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input id="city" type="text" name="city" class="form-control" placeholder="City" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input id="state" type="text" name="state" class="form-control" placeholder="State" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input id="zip" type="text" name="zip" class="form-control" placeholder="ZIP" required></input>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="notes" class="form-control" rows="5" name="notes" placeholder="Patient Notes" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input id="total" type="text" name="total" class="form-control" placeholder="Total" required></input>
+                        </div>
+                    </form>
+                    <div id="orderReviewItems" class="table-responsive">
+                        <table id="orderReviewItemsTable" class="table rounded white">
+                            <th>Quantity</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="form-group">
+                        <input id="confirmOrder" class="btn btn-primary" type="submit" value="Review for Delivery"></input>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div id="confirmOrderModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title text-center">Review for Delivery</h3>
+                </div>
+                <div class="modal-body table-responsive">
+                    <table id="confirmInfo" class="table white">
+                        <tr style="display:none;"><td>Hash</td><td id="confirm_hash"></td></tr>
+                        <!--<tr><td>Email</td><td id="confirm_email"></td></tr>-->
+                        <tr><td>Phone</td><td id="confirm_phone"></td></tr>
+                        <tr><td>First Name</td><td id="confirm_firstname"></td></tr>
+                        <tr><td>Last Name</td><td id="confirm_lastname"></td></tr>
+                        <tr><td>Address</td><td id="confirm_address"></td></tr>
+                        <tr><td>City</td><td id="confirm_city"></td></tr>
+                        <tr><td>State</td><td id="confirm_state"></td></tr>
+                        <tr><td>ZIP</td><td id="confirm_zip"></td></tr>
+                        <tr><td>Notes</td><td id="confirm_notes"></td></tr>
+                        <tr><td>Total to be Collected:</td><td id="confirm_total"></td></tr>
+                    </table>
+                </div>
+                <div class="text-center pad10">
+                    <button id="deliverOrder" class="btn btn-primary">Submit for Delivery</button>
+                </div>
+                <div class="modal-footer"></div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div id="errorModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="errorModalText" class="text-center"></p>
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                    <button id="errorDismissButton" type="button" data-dismiss="modal" class="btn btn-primary">OK</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div id="phoneOrderModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="text-center">Enter Order Info</h2>
+                </div>
+                <div class="modal-body">
+                    <form id="newOrderForm" class="text-center">
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="firstname" placeholder="First Name" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lastname" placeholder="Last Name" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="address" placeholder="Address" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="city" placeholder="City" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="state" placeholder="State" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="zip" placeholder="ZIP" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="total" placeholder="Total" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" name="notes" class="form-control" placeholder="Patient Notes" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-primary" type="submit" value="Review for Delivery"></input>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                    <!--<button id="errorDismissButton" type="button" data-dismiss="modal" class="btn btn-primary">OK</button>-->
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+</html>

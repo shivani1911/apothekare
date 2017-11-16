@@ -1,0 +1,192 @@
+.addToCart {
+    cursor: pointer;
+}
+
+.adminUI {
+    display: none;
+}
+
+.authUI {
+    display: none;
+}
+
+.ageCheck {
+    display: none;
+}
+
+body {
+    padding-top:70px;
+    font-size: 16pt;
+    font-family: "Futura";
+    /*background-color: #617B3D;*/
+    background-color: #dcdcdc;
+    background-image: url("/img/dark_triangles.png");
+}
+
+.contentTab {
+
+}
+
+.confirmDetail {
+
+}
+
+.dispatchOrder {
+    cursor: pointer;
+}
+
+.font-half {
+    font-size:50%;
+}
+
+.font-66 {
+    font-size: 66%
+}
+
+.itemImage {
+    height: 10vh;
+    width: 10vh;
+}
+
+.itemCell {
+    /*background-color: lightgray;*/
+    /*border-radius: 20px;*/
+    text-align:center;
+}
+
+.itemRow {
+    cursor: pointer;
+}
+
+input {
+    width: 100%;
+}
+
+.inactiveTab {
+    display: none;
+}
+
+.menu {
+    display: none;
+}
+
+.menuCaret {
+
+}
+
+.menuBar {
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 24pt;
+    color: black;
+    border-top: 2px solid black;
+}
+
+.menu {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    margin: 5px 5px 5px 5px;
+}
+
+.menuTable {
+    height: 100%;
+    font-size: 14pt;
+    /*padding: 10% 10% 10% 10%;*/
+    /*border: 2px solid black;*/
+    border-radius: 10px;
+    overflow: scroll;
+}
+
+.menuTable td {
+    vertical-align: middle;
+}
+
+.menuTable th {
+
+}
+
+.menuTable tr {
+    height: 10%;
+}
+
+.modal {
+    overflow-y: scroll;
+}
+
+.nonAuthUI {
+
+}
+
+#orderTotal {
+    float: right;
+}
+
+.ageButton {
+    height: 3em;
+    width: 6em;
+    margin-top: 1em;
+    font-size: 18pt;
+    font-weight: bolder;
+
+}
+
+.pad10 {
+    padding: 10px 10px 10px 10px;
+}
+
+.pad50 {
+    padding: 50px 50px 50px 50px;
+}
+
+.pad100 {
+    padding: 100px 100px 100px 100px;
+}
+
+.priceText {
+    line-height: 50px;
+    float: right;
+}
+
+.preAgeCheck {
+    display:none;
+}
+
+.purchasePanel {
+    cursor: pointer;
+    box-shadow: 1px 1px 1px grey;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+}
+
+.removeButton {
+    cursor: pointer;
+}
+
+.right {
+    float: right;
+}
+
+.rounded {
+    border-radius: 5px;
+}
+
+#searchDiv {
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.white {
+    background: #FFFFFF;
+}
+
+.whiteForm {
+    padding: 10px 10px 10px 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.whiteForm input {
+    border-radius: 5px;
+}

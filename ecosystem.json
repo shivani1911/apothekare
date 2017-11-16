@@ -1,0 +1,44 @@
+{
+  /**
+   * Application configuration section
+   * http://pm2.keymetrics.io/docs/usage/application-declaration/
+   */
+  apps : [
+
+    // First application
+    {
+      name      : "Apothekare",
+      script    : "app.js",
+      env: {},
+      env_production : {
+        NODE_ENV: "production"
+      }
+    }
+  ],
+
+  /**
+   * Deployment section
+   * http://pm2.keymetrics.io/docs/usage/deployment/
+   */
+  deploy : {
+    production : {
+      user : "shivanityagi",
+      host : "localhost",
+      ref  : "origin/master",
+      repo : "https://github.com/johnyatesiv/apothekare.git",
+      path : "/var/www/production",
+      "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
+    },
+    dev : {
+      user : "ubuntu",
+      host : "ec2-54-183-9-181.us-west-1.compute.amazonaws.com",
+      ref  : "origin/master",
+      repo : "https://github.com/johnyatesiv/apothekare.git",
+      path : "/var/sites/apothekare",
+      "post-deploy" : "cp /var/sites/apothekare/config/configDev.js /var/sites/apothekare/config/config.js; npm install && pm2 startOrRestart ecosystem.json --env dev",
+      env  : {
+        NODE_ENV: "dev"
+      }
+    }
+  }
+}
